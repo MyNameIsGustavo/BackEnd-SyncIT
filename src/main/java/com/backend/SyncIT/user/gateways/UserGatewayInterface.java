@@ -2,7 +2,11 @@ package com.backend.SyncIT.user.gateways;
 
 import com.backend.SyncIT.user.dto.CreateUserDTO;
 import com.backend.SyncIT.user.entity.UserEntity;
+import java.util.List;
+import java.util.Optional;
 
 public interface UserGatewayInterface {
-    UserEntity createUser(CreateUserDTO user);
+    UserEntity createUserGateway(CreateUserDTO user);
+    List<UserEntity> getAllUsersGateway();
+    Optional<UserEntity> findByIDGateway(Long id);
 }
