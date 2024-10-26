@@ -18,7 +18,9 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    public Optional<UserEntity> findByIDService(Long id){ return actionsJPA.findByIDGateway(id); }
+    public void deleteUserService(Long id) { actionsJPA.deleteUserGateway(id); }
+
+    public Optional<UserEntity> findByIDService(Long id){ return actionsJPA.findByIDUserGateway(id); }
 
     public List<UserEntity> getAllUsersService(){
         return actionsJPA.getAllUsersGateway();

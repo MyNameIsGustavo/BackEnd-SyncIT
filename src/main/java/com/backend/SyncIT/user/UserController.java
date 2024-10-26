@@ -15,8 +15,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<Void> endPointDeleteUser(@PathVariable Long id){
+        userService.deleteUserService(id);
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<UserEntity>> endPointFindByID(@PathVariable Long id){
+    public ResponseEntity<Optional<UserEntity>> endPointFindByIDUser(@PathVariable Long id){
         Optional<UserEntity> user = userService.findByIDService(id);
         return ResponseEntity.ok().body(user);
     }
